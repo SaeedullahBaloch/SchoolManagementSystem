@@ -1,6 +1,15 @@
 Student Admission Process
+As soon as the admission form is received, form completion is checked by the administrator.
+If the application is not complete, it is given back to the parents for completion 
+and if it is complete, the form details are evalulated to verify information.
+if the students do not meet the standards, the student is rejected and a rejection notifiacton 
+is send to the parents. In case of meeting the standards, an entry test is conducted. On receiving the 
+test paper, it is evalulated. if student scores more than 44, he/she will be sent an admission letter.
+Otherwise, a rejection letter is sent to the parents.  
 
 Teacher Hiring Process 
+As soon as the school recieves the CV of the teacher, the details are evalulated. If the teacher meets the 
+requirements of the job, a message is sent and the test is scheduled. 
 
 
 Fee Collection 
