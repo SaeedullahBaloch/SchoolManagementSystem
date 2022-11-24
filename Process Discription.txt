@@ -9,7 +9,7 @@ Otherwise, a rejection letter is sent to the parents.
 
 Teacher Hiring Process 
 As soon as the school recieves the CV of the teacher, the details are evalulated. If the teacher meets the 
-requirements of the job, a message is sent and the test is scheduled. 
+requirements of the job, a message is sent and the test is scheduled and taken on the scheduled day. 
 
 
 Fee Collection 
