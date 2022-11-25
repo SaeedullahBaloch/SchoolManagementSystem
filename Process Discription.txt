@@ -1,18 +1,28 @@
 Student Admission Process
-As soon as the admission form is received, form completion is checked by the administrator.
-If the application is not complete, it is given back to the parents for completion 
-and if it is complete, the form details are evalulated to verify information.
-if the students do not meet the standards, the student is rejected and a rejection notifiacton 
-is send to the parents. In case of meeting the standards, an entry test is conducted. On receiving the 
-test paper, it is evalulated. if student scores more than 44, he/she will be sent an admission letter.
-Otherwise, a rejection letter is sent to the parents.  
+Once the admission form is recieved by the reception, It is checked for completeness.
+If the application is incomplete, it is returned to the parents so that they can the fill the missing 
+information. This process repeats until the application is found complete. On getting the complete form,
+it is sent to the principal for evaluation. The principal checks if the student meets the standards of 
+the schools. If he/she does not meet the standards, the admission is rejected and a notification is sent 
+to the parents a long with the reason. If the standards are met, a test is conducted for the selected class. 
+The student is provided admission, if the he/she scores less than 45. If the student scores more tha 45 
+a notification is sent to the parents, and fee for the admission, course and uniform is collected from the parents.
+if the fee are not completely paid, teacher are notified to submit the fee. If the fee is completed, the course and
+uniform is provided to the student. 
+
 
 Teacher Hiring Process 
-As soon as the school recieves the CV of the teacher, the details are evalulated. If the teacher meets the 
-requirements of the job, a message is sent and the test is scheduled and taken on the scheduled day. 
+When the admission is received, it is checked for completeness. If the application is incomplete, it is returned for 
+completing the missing information. This process repeats until the application is found complete. 
+The test is scheduled if the candidate owns minimum bs degree. If he/she does not posses this requirement, 
+the application is rejected and a notification is sent to the relevant person. After the test is conducted, it is evaluated
+and checked for eligiability. If the teacher is not eligiable for the interview, a thanking letter is sent. If he/she is eligiable 
+for the interview, the interview is scheduled and conducted. If the interview is passed, the teacher is listed and a congratualationary
+message is sent and the job is offered.
+
+Examination Process
 
 
 Fee Collection 
 
 
-Examination Process
