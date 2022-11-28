@@ -20,9 +20,19 @@ and checked for eligiability. If the teacher is not eligiable for the interview,
 for the interview, the interview is scheduled and conducted. If the interview is passed, the teacher is listed and a congratualationary
 message is sent and the job is offered.
 
+
 Examination Process
 
+On receiving a notificaton for conduction of examination from the principal, 
+the exam is created and teachers are notified for preparing the papers for their classes.
+on receiving the paper from the teacher, it is evaluated and check if it meets the criterion and pattern. 
+If it does not meet the criteria, a notfication is sent to the teacher for the correction of the paper. 
+This process repeats until the paper meets the criteria. If it meets the criteria, the paper is printed. 
+Papers are sent for conduction to the respective classes on requried date and timing. Papers are checked and students 
+are marked. Teachers are notified to submit the result and it is shown to the students if approved by the principal.
 
 Fee Collection 
-
+on receiving the fee from the parents, it is checked weather the late fee applies or not for the respective month. 
+If late fee is charged, the parents are requested to pay the complete fee. If the fee is complete, the receipt is generated and
+handed over to the parents.
 
