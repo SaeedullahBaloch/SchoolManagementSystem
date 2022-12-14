@@ -1,6 +1,5 @@
 package Main;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,7 +10,7 @@ public class ListStudents {
 	int AdmissionNumber, Status;
 	String Name, Father, DOB, Phone, Address, Email, ClassID;
 
-	ListStudents [] GetS()
+	public ListStudents [] listAllStudents()
 	{
 
 		try {
@@ -19,22 +18,19 @@ public class ListStudents {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
 
-
 			Statement stmt=con.createStatement();
 
 			ResultSet rs=stmt.executeQuery("SELECT AdmissionNumber, StudentName, FatherName, DateOfBirth,Phone, Address,Email, class.Name as Class\r\n" + 
 					"FROM `students` \r\n" + 
 					"join class on class.ClassID = students.ClassesID\r\n");
 
-
-		int size=0;
+		int size=5;
 		
 		while(rs.next())
 		{
 			size++;
 		}
-		
-		
+				
 		ListStudents students[] = new ListStudents[size];
 		
 		int i=0;

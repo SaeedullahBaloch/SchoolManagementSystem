@@ -12,14 +12,25 @@
 
   <!-- Services from ListStudentsService WSDL service -->
 
-  <service name="ListStudents" provider="java:RPC" style="document" use="encoded">
+  <service name="ListStudents" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://Main"/>
       <parameter name="wsdlServiceElement" value="ListStudentsService"/>
+      <parameter name="schemaQualified" value="http://Main"/>
       <parameter name="wsdlServicePort" value="ListStudents"/>
       <parameter name="className" value="Main.ListStudentsSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="ListStudents"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <parameter name="allowedMethods" value="*"/>
+      <operation name="listAllStudents" qname="operNS:listAllStudents" xmlns:operNS="http://Main" returnQName="retNS:listAllStudentsReturn" xmlns:retNS="http://Main" returnType="rtns:ListStudents" xmlns:rtns="http://Main" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="listAllStudents"/>
 
+      <typeMapping
+        xmlns:ns="http://Main"
+        qname="ns:ListStudents"
+        type="java:Main.ListStudents_Type"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
   </service>
 </deployment>

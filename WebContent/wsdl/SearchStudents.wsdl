@@ -4,47 +4,48 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://Main" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="listAllStudents">
-    <complexType/>
-   </element>
-   <element name="listAllStudentsResponse">
+   <element name="findStudents">
     <complexType>
      <sequence>
-      <element maxOccurs="unbounded" name="listAllStudentsReturn" type="impl:ListStudents"/>
+      <element name="AdmissionNumber" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <complexType name="ListStudents">
-    <sequence/>
-   </complexType>
+   <element name="findStudentsResponse">
+    <complexType>
+     <sequence>
+      <element name="findStudentsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="listAllStudentsRequest">
+   <wsdl:message name="findStudentsRequest">
 
-      <wsdl:part element="impl:listAllStudents" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="listAllStudentsResponse">
-
-      <wsdl:part element="impl:listAllStudentsResponse" name="parameters">
+      <wsdl:part element="impl:findStudents" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:portType name="ListStudents">
+   <wsdl:message name="findStudentsResponse">
 
-      <wsdl:operation name="listAllStudents">
+      <wsdl:part element="impl:findStudentsResponse" name="parameters">
 
-         <wsdl:input message="impl:listAllStudentsRequest" name="listAllStudentsRequest">
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SearchStudents">
+
+      <wsdl:operation name="findStudents">
+
+         <wsdl:input message="impl:findStudentsRequest" name="findStudentsRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:listAllStudentsResponse" name="listAllStudentsResponse">
+         <wsdl:output message="impl:findStudentsResponse" name="findStudentsResponse">
 
        </wsdl:output>
 
@@ -52,21 +53,21 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:portType>
 
-   <wsdl:binding name="ListStudentsSoapBinding" type="impl:ListStudents">
+   <wsdl:binding name="SearchStudentsSoapBinding" type="impl:SearchStudents">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="listAllStudents">
+      <wsdl:operation name="findStudents">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="listAllStudentsRequest">
+         <wsdl:input name="findStudentsRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="listAllStudentsResponse">
+         <wsdl:output name="findStudentsResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -76,11 +77,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:binding>
 
-   <wsdl:service name="ListStudentsService">
+   <wsdl:service name="SearchStudentsService">
 
-      <wsdl:port binding="impl:ListStudentsSoapBinding" name="ListStudents">
+      <wsdl:port binding="impl:SearchStudentsSoapBinding" name="SearchStudents">
 
-         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/ListStudents"/>
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/SearchStudents"/>
 
       </wsdl:port>
 

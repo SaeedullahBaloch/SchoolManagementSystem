@@ -8,6 +8,8 @@ public class Students {
 	
 	public static void main(String[] args) {
 		
+		AddStudents as = new AddStudents();
+		as.addNewStudent(103, "SaeedBa", "Qam", "2020-01-01", "032223", "KG", "Gmail", 1, 1);
 	
 		
 try {
