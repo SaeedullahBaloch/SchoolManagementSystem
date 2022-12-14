@@ -1,11 +1,17 @@
 package Main;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Students {
 
+	
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+	
+		
+		
 try {
 	
 	Class.forName("com.mysql.jdbc.Driver");
@@ -16,22 +22,20 @@ try {
 	
 	ResultSet rs=stmt.executeQuery("SELECT AdmissionNumber, StudentName, FatherName, DateOfBirth,Phone, Address,Email, class.Name as Class\r\n" + 
 			"FROM `students` \r\n" + 
-			"join class on class.ClassID = students.ClassesID\r\n" + 
-			"\r\n" + 
-			"WHERE Status = 1");
+			"join class on class.ClassID = students.ClassesID\r\n");
 
 	
 	while(rs.next())
 	{
 
-	System.out.println("Admission Number : " + rs.getString(2) +
-			" Name: " + rs.getString(3) +
-			" Father : " +rs.getString(4) + 
-			" Date of Birth : " +rs.getString(5)+
-			" Phone : " +rs.getString(6)+
+	System.out.println("Admission Number : " + rs.getString(1) +
+			" Name: " + rs.getString(2) +
+			" Father : " +rs.getString(3) + 
+			" Date of Birth : " +rs.getString(4)+
+			" Phone : " +rs.getString(5)+
 			" Address : " +rs.getString(7) +
-			" Email : " +rs.getString(7)+
-			" Class : " +rs.getString(8)
+			" Email : " +rs.getString(6)+
+			" Class : " +rs.getString(7)
 			
 			);
 	}

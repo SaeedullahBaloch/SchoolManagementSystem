@@ -20,7 +20,8 @@ Examination (Eman)
  => Edit Exams
  => Edit Marks
  
-Fee Collection(Eman & Moiz)
+ 
+Fee Collection(Saeedullah)
  => Collect Fee 
  => List Unpaid Students 
  => Searching Fee By voucher
