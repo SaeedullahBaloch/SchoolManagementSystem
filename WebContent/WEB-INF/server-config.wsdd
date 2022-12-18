@@ -104,13 +104,26 @@
    <ns1:parameter qname="ns4:amount" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="collectStudentFee"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="collectFee"/>
-  <ns1:parameter name="className" value="feeCollection.collectFee"/>
-  <ns1:parameter name="wsdlServicePort" value="collectFee"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServicePort" value="collectFee"/>
+  <ns1:parameter name="className" value="feeCollection.collectFee"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
   <ns1:parameter name="wsdlServiceElement" value="collectFeeService"/>
+ </ns1:service>
+ <ns1:service name="SearchVoucher" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getVoucher" qname="ns5:getVoucher" returnQName="ns5:getVoucherReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="getVoucher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="SearchVoucher"/>
+  <ns1:parameter name="className" value="feeCollection.SearchVoucher"/>
+  <ns1:parameter name="wsdlServicePort" value="SearchVoucher"/>
+  <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServiceElement" value="SearchVoucherService"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>
