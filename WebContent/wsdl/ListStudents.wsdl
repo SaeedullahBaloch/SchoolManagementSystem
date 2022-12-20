@@ -10,11 +10,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="listAllStudentsResponse">
     <complexType>
      <sequence>
-      <element maxOccurs="unbounded" name="listAllStudentsReturn" type="impl:ListStudents"/>
+      <element maxOccurs="unbounded" name="listAllStudentsReturn" type="impl:listStudents"/>
      </sequence>
     </complexType>
    </element>
-   <complexType name="ListStudents">
+   <complexType name="listStudents">
     <sequence/>
    </complexType>
   </schema>
@@ -36,7 +36,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:portType name="ListStudents">
+   <wsdl:portType name="listStudents">
 
       <wsdl:operation name="listAllStudents">
 
@@ -52,7 +52,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:portType>
 
-   <wsdl:binding name="ListStudentsSoapBinding" type="impl:ListStudents">
+   <wsdl:binding name="listStudentsSoapBinding" type="impl:listStudents">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
@@ -76,11 +76,11 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:binding>
 
-   <wsdl:service name="ListStudentsService">
+   <wsdl:service name="listStudentsService">
 
-      <wsdl:port binding="impl:ListStudentsSoapBinding" name="ListStudents">
+      <wsdl:port binding="impl:listStudentsSoapBinding" name="listStudents">
 
-         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/ListStudents"/>
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/listStudents"/>
 
       </wsdl:port>
 

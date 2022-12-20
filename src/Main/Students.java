@@ -4,13 +4,15 @@ import java.sql.*;
 
 public class Students {
 	
-	public static void main(String[] args) {
+public static void main(String[] args) {
 		
-		AddStudents as = new AddStudents();
-		as.addNewStudent(103, "SaeedBa", "Qam", "2020-01-01", "032223", "KG", "Gmail", 1, 1);
 	
+	
+	
+
 		
 try {
+
 	
 	Class.forName("com.mysql.jdbc.Driver");
 	Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
@@ -20,7 +22,7 @@ try {
 	
 	ResultSet rs=stmt.executeQuery("SELECT AdmissionNumber, StudentName, FatherName, DateOfBirth,Phone, Address,Email, class.Name as Class\r\n" + 
 			"FROM `students` \r\n" + 
-			"join class on class.ClassID = students.ClassesID\r\n");
+"join class on class.ClassID = students.ClassesID\r\n");
 
 	
 	

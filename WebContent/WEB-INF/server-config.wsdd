@@ -95,6 +95,15 @@
   <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
   <ns1:parameter name="wsdlServiceElement" value="EditStudentsService"/>
  </ns1:service>
+ <ns1:service name="listingStudents" provider="java:RPC" style="document" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="wsdlPortType" value="listingStudents"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlServicePort" value="listingStudents"/>
+  <ns1:parameter name="className" value="Main.listingStudents"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
+  <ns1:parameter name="wsdlServiceElement" value="listingStudentsService"/>
+ </ns1:service>
  <ns1:service name="collectFee" provider="java:RPC" style="wrapped" use="literal">
   <ns1:operation name="collectStudentFee" qname="ns4:collectStudentFee" returnQName="ns4:collectStudentFeeReturn" returnType="xsd:int" soapAction="" xmlns:ns4="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns4:id" type="xsd:int"/>

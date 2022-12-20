@@ -10,23 +10,23 @@
     xmlns="http://xml.apache.org/axis/wsdd/"
     xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
-  <!-- Services from ListStudentsService WSDL service -->
+  <!-- Services from listStudentsService WSDL service -->
 
-  <service name="ListStudents" provider="java:RPC" style="wrapped" use="literal">
+  <service name="listStudents" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://Main"/>
-      <parameter name="wsdlServiceElement" value="ListStudentsService"/>
+      <parameter name="wsdlServiceElement" value="listStudentsService"/>
       <parameter name="schemaQualified" value="http://Main"/>
-      <parameter name="wsdlServicePort" value="ListStudents"/>
+      <parameter name="wsdlServicePort" value="listStudents"/>
       <parameter name="className" value="Main.ListStudentsSoapBindingImpl"/>
-      <parameter name="wsdlPortType" value="ListStudents"/>
+      <parameter name="wsdlPortType" value="listStudents"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="listAllStudents" qname="operNS:listAllStudents" xmlns:operNS="http://Main" returnQName="retNS:listAllStudentsReturn" xmlns:retNS="http://Main" returnType="rtns:ListStudents" xmlns:rtns="http://Main" soapAction="" >
+      <operation name="listAllStudents" qname="operNS:listAllStudents" xmlns:operNS="http://Main" returnQName="retNS:listAllStudentsReturn" xmlns:retNS="http://Main" returnType="rtns:listStudents" xmlns:rtns="http://Main" soapAction="" >
       </operation>
       <parameter name="allowedMethods" value="listAllStudents"/>
 
       <typeMapping
         xmlns:ns="http://Main"
-        qname="ns:ListStudents"
+        qname="ns:listStudents"
         type="java:Main.ListStudents_Type"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"

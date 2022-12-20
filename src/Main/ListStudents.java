@@ -5,39 +5,42 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class ListStudents {
+public  class  ListStudents {
 
 	int AdmissionNumber, Status;
 	String Name, Father, DOB, Phone, Address, Email, ClassID;
 
-	public ListStudents [] listAllStudents()
+	public ListStudents[] listAllStudents()
 	{
+		
 
 		try {
+			
 
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
 
 			Statement stmt=con.createStatement();
-
-			ResultSet rs=stmt.executeQuery("SELECT AdmissionNumber, StudentName, FatherName, DateOfBirth,Phone, Address,Email, class.Name as Class\r\n" + 
+			ResultSet rs=stmt.executeQuery("SELECT AdmissionNumber, StudentName, FatherName, DateOfBirth,Phone, Address,Email, class.Name as Class, Status\r\n" + 
 					"FROM `students` \r\n" + 
-					"join class on class.ClassID = students.ClassesID\r\n");
+		"join class on class.ClassID = students.ClassesID\r\n");
 
-		int size=5;
+
+		int size=2;
 		
-		while(rs.next())
-		{
-			size++;
-		}
-				
+	
+	
 		ListStudents students[] = new ListStudents[size];
 		
 		int i=0;
 			while(rs.next())
 			{
+				
+				students[i] = new ListStudents();
+				
 			
 				students[i].AdmissionNumber = Integer.parseInt(rs.getString(0).toString());
+				
 				students[i].Name = rs.getString(1).toString();
 				students[i].Father = rs.getString(2).toString();
 				students[i].DOB = rs.getString(3).toString();
@@ -45,7 +48,7 @@ public class ListStudents {
 				students[i].Address = rs.getString(5).toString();
 				students[i].Email = rs.getString(6).toString();
 				students[i].ClassID = rs.getString(7).toString();
-				students[i].Status = Integer.parseInt(rs.getString(8).toString());
+				students[i].Status = Integer.parseInt( rs.getString(8).toString());
 		
 				i++;
 			}
