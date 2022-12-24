@@ -10,24 +10,24 @@
     xmlns="http://xml.apache.org/axis/wsdd/"
     xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
-  <!-- Services from listStudentsService WSDL service -->
+  <!-- Services from ListingStudentsService WSDL service -->
 
-  <service name="listStudents" provider="java:RPC" style="wrapped" use="literal">
+  <service name="ListingStudents" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://Main"/>
-      <parameter name="wsdlServiceElement" value="listStudentsService"/>
+      <parameter name="wsdlServiceElement" value="ListingStudentsService"/>
       <parameter name="schemaQualified" value="http://Main"/>
-      <parameter name="wsdlServicePort" value="listStudents"/>
-      <parameter name="className" value="Main.ListStudentsSoapBindingImpl"/>
-      <parameter name="wsdlPortType" value="listStudents"/>
+      <parameter name="wsdlServicePort" value="ListingStudents"/>
+      <parameter name="className" value="Main.ListingStudentsSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="ListingStudents"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="listAllStudents" qname="operNS:listAllStudents" xmlns:operNS="http://Main" returnQName="retNS:listAllStudentsReturn" xmlns:retNS="http://Main" returnType="rtns:listStudents" xmlns:rtns="http://Main" soapAction="" >
+      <operation name="listAllStudents" qname="operNS:listAllStudents" xmlns:operNS="http://Main" returnQName="retNS:listAllStudentsReturn" xmlns:retNS="http://Main" returnType="rtns:StudentList" xmlns:rtns="http://Main" soapAction="" >
       </operation>
       <parameter name="allowedMethods" value="listAllStudents"/>
 
       <typeMapping
         xmlns:ns="http://Main"
-        qname="ns:listStudents"
-        type="java:Main.ListStudents_Type"
+        qname="ns:StudentList"
+        type="java:Main.StudentList"
         serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
         deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
         encodingStyle=""

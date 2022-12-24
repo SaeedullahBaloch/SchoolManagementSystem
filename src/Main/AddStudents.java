@@ -14,7 +14,7 @@ public class AddStudents {
 		{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
-				
+	
 			
 			Statement stmt=con.createStatement();
 			

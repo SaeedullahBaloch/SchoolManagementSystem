@@ -6,7 +6,6 @@ import java.sql.Statement;
 
 public class collectFee {
 	
-	
 
 	public int collectStudentFee(int id, int studentID, String FeeMonth, String Date, int amount)
 	{
