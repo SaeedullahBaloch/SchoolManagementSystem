@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ListingVoucherService WSDL service -->
+
+  <service name="ListingVoucher" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
+      <parameter name="wsdlServiceElement" value="ListingVoucherService"/>
+      <parameter name="schemaQualified" value="http://feeCollection"/>
+      <parameter name="wsdlServicePort" value="ListingVoucher"/>
+      <parameter name="className" value="feeCollection.ListingVoucher"/>
+      <parameter name="wsdlPortType" value="ListingVoucher"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://feeCollection" xmlns:retNS="http://feeCollection" xmlns:rtns="http://feeCollection" name="vouchers" qname="operNS:vouchers" returnQName="retNS:vouchersReturn" returnType="rtns:VoucherList" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="vouchers"/>
+
+      <typeMapping xmlns:ns="http://feeCollection" qname="ns:VoucherList" type="java:feeCollection.VoucherList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

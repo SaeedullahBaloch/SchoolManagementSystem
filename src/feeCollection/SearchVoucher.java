@@ -25,7 +25,7 @@ public class SearchVoucher {
 		
 		rs.next();
 		
-		String Receipt = rs.getString(0).toString() + rs.getString(1).toString() + rs.getString(2).toString() + rs.getString(3).toString() + rs.getString(4).toString();
+		String Receipt = rs.getString(1).toString() + rs.getString(2).toString() + rs.getString(3).toString() + rs.getString(4).toString() + rs.getString(5).toString();
 		con.close();
 		return Receipt;
 		
