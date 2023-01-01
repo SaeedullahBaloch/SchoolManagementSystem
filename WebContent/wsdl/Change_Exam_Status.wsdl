@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Exam" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Exam" xmlns:intf="http://Exam" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Exam" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="changeStatus">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="status" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="changeStatusResponse">
+    <complexType>
+     <sequence>
+      <element name="changeStatusReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="changeStatusResponse">
+
+      <wsdl:part element="impl:changeStatusResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="changeStatusRequest">
+
+      <wsdl:part element="impl:changeStatus" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Change_Exam_Status">
+
+      <wsdl:operation name="changeStatus">
+
+         <wsdl:input message="impl:changeStatusRequest" name="changeStatusRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:changeStatusResponse" name="changeStatusResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Change_Exam_StatusSoapBinding" type="impl:Change_Exam_Status">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="changeStatus">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="changeStatusRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="changeStatusResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Change_Exam_StatusService">
+
+      <wsdl:port binding="impl:Change_Exam_StatusSoapBinding" name="Change_Exam_Status">
+
+         <wsdlsoap:address location="http://tempuri.org/SchoolManagementSystem/services/Change_Exam_Status"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
