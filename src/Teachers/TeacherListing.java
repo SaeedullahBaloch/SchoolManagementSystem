@@ -16,12 +16,19 @@ public class TeacherListing {
 			ResultSet rs=stmt.executeQuery("SELECT TeacherID, RegistrationNumber, Name, Father, DateOfBirth, Phone, CNIC, Qualification, Email, Address, RegistrationDate, Status FROM `teachers`");
 	
 			
-		int size=0;
-			
-			while(rs.next())
-			{
-				size++;
+			int size =0;  
+			if (rs != null)   
+			{  
+			rs.beforeFirst();  
+			 rs.last();  
+			size = rs.getRow();
 			}
+			
+			
+		
+			
+			rs.beforeFirst(); 
+			
 			ListTeachers teacher[] = new ListTeachers[size];
 		
 		

@@ -20,7 +20,7 @@
       <parameter name="className" value="Main.AddStudentsSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="AddStudents"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="addNewStudent" qname="operNS:addNewStudent" xmlns:operNS="http://Main" soapAction="" >
+      <operation name="addNewStudent" qname="operNS:addNewStudent" xmlns:operNS="http://Main" returnQName="retNS:addNewStudentReturn" xmlns:retNS="http://Main" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:AdmissionNumber" xmlns:pns="http://Main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:StudentName" xmlns:pns="http://Main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Father" xmlns:pns="http://Main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>

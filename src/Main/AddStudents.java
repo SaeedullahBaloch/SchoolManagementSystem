@@ -8,7 +8,7 @@ public class AddStudents {
 
 	
 	
-	public void addNewStudent(int AdmissionNumber,String StudentName, String Father, String DOB, String Phone, String Address, String Email, int ClassID, int status)
+	public int addNewStudent(int AdmissionNumber,String StudentName, String Father, String DOB, String Phone, String Address, String Email, int ClassID, int status)
 	{
 		try 
 		{
@@ -19,9 +19,11 @@ public class AddStudents {
 			Statement stmt=con.createStatement();
 			
 			
-			stmt.executeUpdate("insert into Students(AdmissionNumber, StudentName, FatherName, DateOfBirth, Phone, Address, Email, ClassesID, Status) values ('"+AdmissionNumber+"', '"+StudentName+"', '"+Father+"', "
+			int rs =stmt.executeUpdate("insert into Students(AdmissionNumber, StudentName, FatherName, DateOfBirth, Phone, Address, Email, ClassesID, Status) values ('"+AdmissionNumber+"', '"+StudentName+"', '"+Father+"', "
 					+ "'"+DOB+"', '"+Phone+"', '"+ Address+"', "
-					+Email+"', '"+ClassID+"', '"+status+"')");
+					+"'"+Email+"', '"+ClassID+"', '"+status+"')");
+			
+			return rs;
 			
 		}
 		
@@ -30,6 +32,8 @@ public class AddStudents {
 			System.out.println(ex.getMessage());
 		}
 		
+		
+		return 0;
 		
 		
 	}

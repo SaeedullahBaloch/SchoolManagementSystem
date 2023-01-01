@@ -17,12 +17,19 @@ public class ListingStudents {
 			ResultSet rs=stmt.executeQuery("SELECT AdmissionNumber, StudentName, FatherName, DateOfBirth,Phone, Address,Email, classesID, Status FROM `students` ");
 	
 			
-			int size=0;
 			
-			while(rs.next())
-			{
-				size++;
+			int size =0;  
+			if (rs != null)   
+			{  
+			rs.beforeFirst();  
+			 rs.last();  
+			size = rs.getRow();
 			}
+			
+			
+		
+			
+			rs.beforeFirst(); 
 	
 		StudentList students[] = new StudentList[size];
 		

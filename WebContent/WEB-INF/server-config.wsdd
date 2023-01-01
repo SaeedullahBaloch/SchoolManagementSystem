@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -23,16 +23,16 @@
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
  <ns1:service name="AddStudents" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="addNewStudent" qname="ns1:addNewStudent" soapAction="" xmlns:ns1="http://Main" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:AdmissionNumber" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:StudentName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:Father" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:DOB" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:Phone" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:Address" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:Email" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:ClassID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-   <ns2:parameter qname="ns1:status" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns2:operation name="addNewStudent" qname="ns1:addNewStudent" returnQName="ns1:addNewStudentReturn" returnType="xsd:int" soapAction="" xmlns:ns1="http://Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:AdmissionNumber" type="xsd:int"/>
+   <ns2:parameter qname="ns1:StudentName" type="xsd:string"/>
+   <ns2:parameter qname="ns1:Father" type="xsd:string"/>
+   <ns2:parameter qname="ns1:DOB" type="xsd:string"/>
+   <ns2:parameter qname="ns1:Phone" type="xsd:string"/>
+   <ns2:parameter qname="ns1:Address" type="xsd:string"/>
+   <ns2:parameter qname="ns1:Email" type="xsd:string"/>
+   <ns2:parameter qname="ns1:ClassID" type="xsd:int"/>
+   <ns2:parameter qname="ns1:status" type="xsd:int"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="addNewStudent"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -48,11 +48,11 @@
    <ns1:parameter qname="ns2:id" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="deleteVoucher"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="DeleteVoucher"/>
-  <ns1:parameter name="className" value="feeCollection.DeleteVoucher"/>
-  <ns1:parameter name="wsdlServicePort" value="DeleteVoucher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServicePort" value="DeleteVoucher"/>
+  <ns1:parameter name="className" value="feeCollection.DeleteVoucher"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
   <ns1:parameter name="wsdlServiceElement" value="DeleteVoucherService"/>
  </ns1:service>
@@ -61,11 +61,11 @@
    <ns1:parameter qname="ns3:AdmissionNumber" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="findStudents"/>
-  <ns1:parameter name="wsdlPortType" value="SearchStudents"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://Main"/>
-  <ns1:parameter name="wsdlServicePort" value="SearchStudents"/>
+  <ns1:parameter name="wsdlPortType" value="SearchStudents"/>
   <ns1:parameter name="className" value="Main.SearchStudents"/>
+  <ns1:parameter name="wsdlServicePort" value="SearchStudents"/>
+  <ns1:parameter name="schemaQualified" value="http://Main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
   <ns1:parameter name="wsdlServiceElement" value="SearchStudentsService"/>
  </ns1:service>
@@ -91,11 +91,11 @@
    <ns1:parameter qname="ns4:ClassID" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="editStudents"/>
-  <ns1:parameter name="wsdlPortType" value="EditStudents"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://Main"/>
-  <ns1:parameter name="wsdlServicePort" value="EditStudents"/>
+  <ns1:parameter name="wsdlPortType" value="EditStudents"/>
   <ns1:parameter name="className" value="Main.EditStudents"/>
+  <ns1:parameter name="wsdlServicePort" value="EditStudents"/>
+  <ns1:parameter name="schemaQualified" value="http://Main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
   <ns1:parameter name="wsdlServiceElement" value="EditStudentsService"/>
  </ns1:service>
@@ -104,11 +104,11 @@
    <ns1:parameter qname="ns5:id" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getVoucher"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="SearchVoucher"/>
-  <ns1:parameter name="className" value="feeCollection.SearchVoucher"/>
-  <ns1:parameter name="wsdlServicePort" value="SearchVoucher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServicePort" value="SearchVoucher"/>
+  <ns1:parameter name="className" value="feeCollection.SearchVoucher"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
   <ns1:parameter name="wsdlServiceElement" value="SearchVoucherService"/>
  </ns1:service>
@@ -117,11 +117,11 @@
    <ns1:parameter qname="ns6:id" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="deleteStudent"/>
-  <ns1:parameter name="wsdlPortType" value="DeleteStudents"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://Main"/>
-  <ns1:parameter name="wsdlServicePort" value="DeleteStudents"/>
+  <ns1:parameter name="wsdlPortType" value="DeleteStudents"/>
   <ns1:parameter name="className" value="Main.DeleteStudents"/>
+  <ns1:parameter name="wsdlServicePort" value="DeleteStudents"/>
+  <ns1:parameter name="schemaQualified" value="http://Main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
   <ns1:parameter name="wsdlServiceElement" value="DeleteStudentsService"/>
  </ns1:service>
@@ -140,11 +140,11 @@
  <ns1:service name="ListingVoucher" provider="java:RPC" style="wrapped" use="literal">
   <ns1:operation name="vouchers" qname="ns9:vouchers" returnQName="ns9:vouchersReturn" returnType="ns9:VoucherList" soapAction="" xmlns:ns9="http://feeCollection"/>
   <ns1:parameter name="allowedMethods" value="vouchers"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="ListingVoucher"/>
-  <ns1:parameter name="className" value="feeCollection.ListingVoucher"/>
-  <ns1:parameter name="wsdlServicePort" value="ListingVoucher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServicePort" value="ListingVoucher"/>
+  <ns1:parameter name="className" value="feeCollection.ListingVoucher"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
   <ns1:parameter name="wsdlServiceElement" value="ListingVoucherService"/>
   <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:VoucherList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:feeCollection.VoucherList" xmlns:ns10="http://feeCollection"/>
