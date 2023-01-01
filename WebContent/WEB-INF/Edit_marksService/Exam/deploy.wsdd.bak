@@ -1,0 +1,34 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Edit_marksService WSDL service -->
+
+  <service name="Edit_marks" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Exam"/>
+      <parameter name="wsdlServiceElement" value="Edit_marksService"/>
+      <parameter name="schemaQualified" value="http://Exam"/>
+      <parameter name="wsdlServicePort" value="Edit_marks"/>
+      <parameter name="className" value="Exam.Edit_marksSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Edit_marks"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="edit_marks" qname="operNS:edit_marks" xmlns:operNS="http://Exam" returnQName="retNS:edit_marksReturn" xmlns:retNS="http://Exam" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ExamID" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:StudentID" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:TeacherID" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:TotalMarks" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ObtainedMarks" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Result" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="edit_marks"/>
+
+  </service>
+</deployment>

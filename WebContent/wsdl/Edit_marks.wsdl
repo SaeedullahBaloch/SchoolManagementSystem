@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Exam" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Exam" xmlns:intf="http://Exam" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Exam" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="edit_marks">
+    <complexType>
+     <sequence>
+      <element name="ExamID" type="xsd:string"/>
+      <element name="StudentID" type="xsd:string"/>
+      <element name="TeacherID" type="xsd:string"/>
+      <element name="TotalMarks" type="xsd:int"/>
+      <element name="ObtainedMarks" type="xsd:int"/>
+      <element name="Result" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="edit_marksResponse">
+    <complexType>
+     <sequence>
+      <element name="edit_marksReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="edit_marksRequest">
+
+      <wsdl:part element="impl:edit_marks" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="edit_marksResponse">
+
+      <wsdl:part element="impl:edit_marksResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Edit_marks">
+
+      <wsdl:operation name="edit_marks">
+
+         <wsdl:input message="impl:edit_marksRequest" name="edit_marksRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:edit_marksResponse" name="edit_marksResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Edit_marksSoapBinding" type="impl:Edit_marks">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="edit_marks">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="edit_marksRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="edit_marksResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Edit_marksService">
+
+      <wsdl:port binding="impl:Edit_marksSoapBinding" name="Edit_marks">
+
+         <wsdlsoap:address location="http://tempuri.org/SchoolManagementSystem/services/Edit_marks"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
