@@ -10,7 +10,7 @@
       <parameter name="className" value="Teaching.addTeachers"/>
       <parameter name="wsdlPortType" value="addTeachers"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://Teaching" name="addNewTeacher" qname="operNS:addNewTeacher" soapAction="">
+      <operation xmlns:operNS="http://Teaching" xmlns:retNS="http://Teaching" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addNewTeacher" qname="operNS:addNewTeacher" returnQName="retNS:addNewTeacherReturn" returnType="rtns:int" soapAction="">
         <parameter xmlns:pns="http://Teaching" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:TeacherID" type="tns:int"/>
         <parameter xmlns:pns="http://Teaching" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:RegistrationNumber" type="tns:int"/>
         <parameter xmlns:pns="http://Teaching" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Name" type="tns:string"/>

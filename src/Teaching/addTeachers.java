@@ -8,7 +8,7 @@ public class addTeachers {
 	
 
 	
-	public void addNewTeacher(int TeacherID,int RegistrationNumber,String Name,String Father, String DateOfBirth, String Phone, String CNIC,
+	public int addNewTeacher(int TeacherID,int RegistrationNumber,String Name,String Father, String DateOfBirth, String Phone, String CNIC,
 		String Qualification,String Email,String Address,String RegistrationDate,String Status)
 	{
 		try 
@@ -20,18 +20,18 @@ public class addTeachers {
 			Statement stmt=con.createStatement();
 			
 			
-			stmt.executeUpdate("INSERT INTO teachers (TeacherID,RegistrationNumber,Name,Father,DateOfBirth,Phone,CNIC,Qualification,Email,Address,RegistrationDate,Status)"
+			int i =stmt.executeUpdate("INSERT INTO teachers (TeacherID,RegistrationNumber,Name,Father,DateOfBirth,Phone,CNIC,Qualification,Email,Address,RegistrationDate,Status)"
 					+ "values ('"+TeacherID+"', '"+RegistrationNumber+"', '"+Name+"', "
 					+ "'"+Father+"', '"+DateOfBirth+"', '"+Phone+"',"
 					+"'"+CNIC+"', '"+Qualification+"','"+Email+"','"+Address+"','"+RegistrationDate+"','"+Status+"')");
-			
+			return i;
 		}
 		
 		catch(Exception ex)
 		{
 			System.out.println(ex.getMessage());
 		}
-		
+		return 0;
 		
 	}
 }
