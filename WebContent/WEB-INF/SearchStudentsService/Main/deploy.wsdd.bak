@@ -20,10 +20,18 @@
       <parameter name="className" value="Main.SearchStudentsSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="SearchStudents"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="findStudents" qname="operNS:findStudents" xmlns:operNS="http://Main" returnQName="retNS:findStudentsReturn" xmlns:retNS="http://Main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="findStudents" qname="operNS:findStudents" xmlns:operNS="http://Main" returnQName="retNS:findStudentsReturn" xmlns:retNS="http://Main" returnType="rtns:StudentList" xmlns:rtns="http://Main" soapAction="" >
         <parameter qname="pns:AdmissionNumber" xmlns:pns="http://Main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="findStudents"/>
 
+      <typeMapping
+        xmlns:ns="http://Main"
+        qname="ns:StudentList"
+        type="java:Main.StudentList"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
   </service>
 </deployment>

@@ -25,13 +25,19 @@ public class ListingVoucher {
 		ResultSet rs = stmt.executeQuery("select * from fee");
 			
 			
-			int size = 0;
-			
-			while(rs.next())
-			{
-				size++;
-			}
-			
+		int size =0;  
+		if (rs != null)   
+		{  
+		rs.beforeFirst();  
+		 rs.last();  
+		size = rs.getRow();
+		}
+		
+		
+	
+		
+		rs.beforeFirst(); 
+
 			
 			
 			VoucherList[] listvouchers = new VoucherList[size];

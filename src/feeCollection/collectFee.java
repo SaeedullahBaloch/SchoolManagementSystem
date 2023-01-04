@@ -18,9 +18,11 @@ public class collectFee {
 				
 			
 			Statement stmt=con.createStatement();
+			String query = "insert into fee values (FeeID = '"+id+"', StudentID = '"+studentID+"', FeeMonth = '"+FeeMonth+"', Date = '"+Date+"', Amount = '"+amount+"' )";
 			
 			
-		int i=	stmt.executeUpdate("insert into fee values (FeeID = '"+id+"', StudentID = '"+studentID+"', FeeMonth = '"+FeeMonth+"', Date = '"+Date+"', Amount = '"+amount+"' )");
+			System.out.println(query);
+		int i=	stmt.executeUpdate(query);
 
 		con.close();
 		return i;

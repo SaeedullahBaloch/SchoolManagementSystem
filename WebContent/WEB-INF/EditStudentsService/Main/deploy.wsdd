@@ -19,6 +19,7 @@
         <parameter xmlns:pns="http://Main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Address" type="tns:string"/>
         <parameter xmlns:pns="http://Main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Email" type="tns:string"/>
         <parameter xmlns:pns="http://Main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:ClassID" type="tns:int"/>
+        <parameter xmlns:pns="http://Main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:status" type="tns:string"/>
       </operation>
       <parameter name="allowedMethods" value="editStudents"/>
 

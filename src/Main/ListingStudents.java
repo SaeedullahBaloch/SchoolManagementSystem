@@ -4,8 +4,6 @@ import java.sql.*;
 
 public class ListingStudents {
 	
-
-
 	public StudentList[] listAllStudents()
 	{
 		try {
@@ -65,9 +63,7 @@ public class ListingStudents {
 			System.out.println(ex);
 
 		}
-
 		return null;
-
 	}
 	
 	

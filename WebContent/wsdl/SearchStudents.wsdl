@@ -14,10 +14,23 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="findStudentsResponse">
     <complexType>
      <sequence>
-      <element name="findStudentsReturn" type="xsd:string"/>
+      <element name="findStudentsReturn" type="impl:StudentList"/>
      </sequence>
     </complexType>
    </element>
+   <complexType name="StudentList">
+    <sequence>
+     <element name="AdmissionNumber" type="xsd:int"/>
+     <element name="Status" type="xsd:int"/>
+     <element name="Name" nillable="true" type="xsd:string"/>
+     <element name="Father" nillable="true" type="xsd:string"/>
+     <element name="DOB" nillable="true" type="xsd:string"/>
+     <element name="Phone" nillable="true" type="xsd:string"/>
+     <element name="Address" nillable="true" type="xsd:string"/>
+     <element name="Email" nillable="true" type="xsd:string"/>
+     <element name="ClassID" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
   </schema>
  </wsdl:types>
 

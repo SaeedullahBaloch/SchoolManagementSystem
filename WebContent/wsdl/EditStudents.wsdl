@@ -15,6 +15,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
       <element name="Address" type="xsd:string"/>
       <element name="Email" type="xsd:string"/>
       <element name="ClassID" type="xsd:int"/>
+      <element name="status" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>

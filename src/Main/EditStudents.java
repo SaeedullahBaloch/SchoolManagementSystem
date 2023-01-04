@@ -9,7 +9,7 @@ public class EditStudents {
 	
 	
 	
-	public int editStudents(int AdmissionNumber,String StudentName, String Father, String DOB, String Phone, String Address, String Email, int ClassID)
+	public int editStudents(int AdmissionNumber,String StudentName, String Father, String DOB, String Phone, String Address, String Email, int ClassID, String status)
 	{
 	
 try {
@@ -23,7 +23,7 @@ try {
 			
 			
 			String sql = "update students set StudentName = '"+StudentName+"', FatherName = '"+Father+"', DateOfBirth = '"+DOB+"',"
-					+ "Phone = '"+Phone+"', Address = '"+Address+"',Email = '"+Email+"', ClassesID = '"+ClassID+"' where AdmissionNumber = '"+AdmissionNumber+"'";
+					+ "Phone = '"+Phone+"', Address = '"+Address+"',Email = '"+Email+"', ClassesID = '"+ClassID+"', Status = '"+status+"' where AdmissionNumber = '"+AdmissionNumber+"'";
 			
 		int rs =	stmt.executeUpdate(sql);
 

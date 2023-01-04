@@ -10,10 +10,11 @@
       <parameter name="className" value="Main.SearchStudents"/>
       <parameter name="wsdlPortType" value="SearchStudents"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://Main" xmlns:retNS="http://Main" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="findStudents" qname="operNS:findStudents" returnQName="retNS:findStudentsReturn" returnType="rtns:string" soapAction="">
+      <operation xmlns:operNS="http://Main" xmlns:retNS="http://Main" xmlns:rtns="http://Main" name="findStudents" qname="operNS:findStudents" returnQName="retNS:findStudentsReturn" returnType="rtns:StudentList" soapAction="">
         <parameter xmlns:pns="http://Main" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:AdmissionNumber" type="tns:int"/>
       </operation>
       <parameter name="allowedMethods" value="findStudents"/>
 
+      <typeMapping xmlns:ns="http://Main" qname="ns:StudentList" type="java:Main.StudentList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
   </service>
 </deployment>
