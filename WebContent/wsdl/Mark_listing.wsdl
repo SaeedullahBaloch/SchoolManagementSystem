@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Exam" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Exam" xmlns:intf="http://Exam" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Exam" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="mark_listing">
+    <complexType/>
+   </element>
+   <element name="mark_listingResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="mark_listingReturn" type="impl:Marks_list"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Marks_list">
+    <sequence>
+     <element name="ExamID" type="xsd:int"/>
+     <element name="TotalMarks" type="xsd:int"/>
+     <element name="ObtainedMarks" type="xsd:int"/>
+     <element name="Result" nillable="true" type="xsd:string"/>
+     <element name="StudentID" nillable="true" type="xsd:string"/>
+     <element name="TeacherID" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="mark_listingResponse">
+
+      <wsdl:part element="impl:mark_listingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="mark_listingRequest">
+
+      <wsdl:part element="impl:mark_listing" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Mark_listing">
+
+      <wsdl:operation name="mark_listing">
+
+         <wsdl:input message="impl:mark_listingRequest" name="mark_listingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:mark_listingResponse" name="mark_listingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Mark_listingSoapBinding" type="impl:Mark_listing">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="mark_listing">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="mark_listingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="mark_listingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Mark_listingService">
+
+      <wsdl:port binding="impl:Mark_listingSoapBinding" name="Mark_listing">
+
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/Mark_listing"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

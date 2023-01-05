@@ -1,0 +1,36 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Mark_listingService WSDL service -->
+
+  <service name="Mark_listing" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Exam"/>
+      <parameter name="wsdlServiceElement" value="Mark_listingService"/>
+      <parameter name="schemaQualified" value="http://Exam"/>
+      <parameter name="wsdlServicePort" value="Mark_listing"/>
+      <parameter name="className" value="Exam.Mark_listingSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Mark_listing"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="mark_listing" qname="operNS:mark_listing" xmlns:operNS="http://Exam" returnQName="retNS:mark_listingReturn" xmlns:retNS="http://Exam" returnType="rtns:Marks_list" xmlns:rtns="http://Exam" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="mark_listing"/>
+
+      <typeMapping
+        xmlns:ns="http://Exam"
+        qname="ns:Marks_list"
+        type="java:Exam.Marks_list"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
