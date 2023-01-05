@@ -1,0 +1,34 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Add_Student_MarksService WSDL service -->
+
+  <service name="Add_Student_Marks" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Exam"/>
+      <parameter name="wsdlServiceElement" value="Add_Student_MarksService"/>
+      <parameter name="schemaQualified" value="http://Exam"/>
+      <parameter name="wsdlServicePort" value="Add_Student_Marks"/>
+      <parameter name="className" value="Exam.Add_Student_MarksSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Add_Student_Marks"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="addstudentmarks" qname="operNS:addstudentmarks" xmlns:operNS="http://Exam" returnQName="retNS:addstudentmarksReturn" xmlns:retNS="http://Exam" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ExamID" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:StudentID" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:TeacherID" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:TotalMarks" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ObtainedMarks" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Result" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addstudentmarks"/>
+
+  </service>
+</deployment>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://feeCollection" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://feeCollection" xmlns:intf="http://feeCollection" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://feeCollection" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="collectStudentFee">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+      <element name="studentID" type="xsd:int"/>
+      <element name="FeeMonth" type="xsd:string"/>
+      <element name="Date" type="xsd:string"/>
+      <element name="amount" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="collectStudentFeeResponse">
+    <complexType>
+     <sequence>
+      <element name="collectStudentFeeReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="collectStudentFeeRequest">
+
+      <wsdl:part element="impl:collectStudentFee" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="collectStudentFeeResponse">
+
+      <wsdl:part element="impl:collectStudentFeeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="collectFee">
+
+      <wsdl:operation name="collectStudentFee">
+
+         <wsdl:input message="impl:collectStudentFeeRequest" name="collectStudentFeeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:collectStudentFeeResponse" name="collectStudentFeeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="collectFeeSoapBinding" type="impl:collectFee">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="collectStudentFee">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="collectStudentFeeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="collectStudentFeeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="collectFeeService">
+
+      <wsdl:port binding="impl:collectFeeSoapBinding" name="collectFee">
+
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/collectFee"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

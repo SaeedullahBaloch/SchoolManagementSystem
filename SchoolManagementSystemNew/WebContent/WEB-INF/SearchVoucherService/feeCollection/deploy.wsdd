@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SearchVoucherService WSDL service -->
+
+  <service name="SearchVoucher" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
+      <parameter name="wsdlServiceElement" value="SearchVoucherService"/>
+      <parameter name="schemaQualified" value="http://feeCollection"/>
+      <parameter name="wsdlServicePort" value="SearchVoucher"/>
+      <parameter name="className" value="feeCollection.SearchVoucher"/>
+      <parameter name="wsdlPortType" value="SearchVoucher"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://feeCollection" xmlns:retNS="http://feeCollection" xmlns:rtns="http://feeCollection" name="getVoucher" qname="operNS:getVoucher" returnQName="retNS:getVoucherReturn" returnType="rtns:VoucherList" soapAction="">
+        <parameter xmlns:pns="http://feeCollection" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="getVoucher"/>
+
+      <typeMapping xmlns:ns="http://feeCollection" qname="ns:VoucherList" type="java:feeCollection.VoucherList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

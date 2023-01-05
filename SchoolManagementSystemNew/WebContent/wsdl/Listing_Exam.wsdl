@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Exam" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Exam" xmlns:intf="http://Exam" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Exam" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="listing_Exams">
+    <complexType/>
+   </element>
+   <element name="listing_ExamsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listing_ExamsReturn" type="impl:Exam_list"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="Exam_list">
+    <sequence>
+     <element name="ExamID" type="xsd:int"/>
+     <element name="Name" nillable="true" type="xsd:string"/>
+     <element name="StartDate" nillable="true" type="xsd:string"/>
+     <element name="EndDate" nillable="true" type="xsd:string"/>
+     <element name="Status" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="listing_ExamsRequest">
+
+      <wsdl:part element="impl:listing_Exams" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listing_ExamsResponse">
+
+      <wsdl:part element="impl:listing_ExamsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Listing_Exam">
+
+      <wsdl:operation name="listing_Exams">
+
+         <wsdl:input message="impl:listing_ExamsRequest" name="listing_ExamsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listing_ExamsResponse" name="listing_ExamsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Listing_ExamSoapBinding" type="impl:Listing_Exam">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="listing_Exams">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listing_ExamsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listing_ExamsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Listing_ExamService">
+
+      <wsdl:port binding="impl:Listing_ExamSoapBinding" name="Listing_Exam">
+
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/Listing_Exam"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
