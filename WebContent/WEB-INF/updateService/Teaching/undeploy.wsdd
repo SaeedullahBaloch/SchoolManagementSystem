@@ -9,7 +9,7 @@
 <undeployment
     xmlns="http://xml.apache.org/axis/wsdd/">
 
-  <!-- Services from EditStudentsService WSDL service -->
+  <!-- Services from updateService WSDL service -->
 
-  <service name="EditStudents"/>
+  <service name="update"/>
 </undeployment>

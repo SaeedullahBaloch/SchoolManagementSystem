@@ -1,0 +1,37 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from SearchTeacherService WSDL service -->
+
+  <service name="SearchTeacher" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Teaching"/>
+      <parameter name="wsdlServiceElement" value="SearchTeacherService"/>
+      <parameter name="schemaQualified" value="http://Teaching"/>
+      <parameter name="wsdlServicePort" value="SearchTeacher"/>
+      <parameter name="className" value="Teaching.SearchTeacherSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="SearchTeacher"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="findTeachers" qname="operNS:findTeachers" xmlns:operNS="http://Teaching" returnQName="retNS:findTeachersReturn" xmlns:retNS="http://Teaching" returnType="rtns:ListTeachers" xmlns:rtns="http://Teaching" soapAction="" >
+        <parameter qname="pns:TeacherID" xmlns:pns="http://Teaching" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="findTeachers"/>
+
+      <typeMapping
+        xmlns:ns="http://Teaching"
+        qname="ns:ListTeachers"
+        type="java:Teaching.ListTeachers"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Teaching" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Teaching" xmlns:intf="http://Teaching" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Teaching" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="findTeachers">
+    <complexType>
+     <sequence>
+      <element name="TeacherID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="findTeachersResponse">
+    <complexType>
+     <sequence>
+      <element name="findTeachersReturn" type="impl:ListTeachers"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ListTeachers">
+    <sequence>
+     <element name="TeacherID" type="xsd:int"/>
+     <element name="RegistrationNumber" type="xsd:int"/>
+     <element name="Name" nillable="true" type="xsd:string"/>
+     <element name="Father" nillable="true" type="xsd:string"/>
+     <element name="DateOfBirth" nillable="true" type="xsd:string"/>
+     <element name="Phone" nillable="true" type="xsd:string"/>
+     <element name="CNIC" nillable="true" type="xsd:string"/>
+     <element name="Qualification" nillable="true" type="xsd:string"/>
+     <element name="Email" nillable="true" type="xsd:string"/>
+     <element name="Address" nillable="true" type="xsd:string"/>
+     <element name="RegistrationDate" nillable="true" type="xsd:string"/>
+     <element name="Status" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="findTeachersRequest">
+
+      <wsdl:part element="impl:findTeachers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="findTeachersResponse">
+
+      <wsdl:part element="impl:findTeachersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SearchTeacher">
+
+      <wsdl:operation name="findTeachers">
+
+         <wsdl:input message="impl:findTeachersRequest" name="findTeachersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:findTeachersResponse" name="findTeachersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SearchTeacherSoapBinding" type="impl:SearchTeacher">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="findTeachers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="findTeachersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="findTeachersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SearchTeacherService">
+
+      <wsdl:port binding="impl:SearchTeacherSoapBinding" name="SearchTeacher">
+
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/SearchTeacher"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
