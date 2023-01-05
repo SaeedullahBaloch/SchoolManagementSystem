@@ -118,17 +118,14 @@
                                         Students</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="student-details.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Student Details</a>
+                                    <a href="SearchStudents.jsp" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Search Student </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="AddStudents.jsp" class="nav-link"><i
                                             class="fas fa-angle-right"></i>Admission Form</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="student-promotion.html" class="nav-link"><i
-                                            class="fas fa-angle-right"></i>Student Promotion</a>
-                                </li>
+                               
                             </ul>
                         </li>
                         <li class="nav-item sidebar-nav-item">
