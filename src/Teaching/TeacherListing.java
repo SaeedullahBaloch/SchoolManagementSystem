@@ -10,7 +10,7 @@ public class TeacherListing {
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/schoolmanagmentdb","root","");
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
 
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT TeacherID, RegistrationNumber, Name, Father, DateOfBirth, Phone, CNIC, Qualification, Email, Address, RegistrationDate, Status FROM `teachers`");

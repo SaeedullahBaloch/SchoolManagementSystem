@@ -9,7 +9,7 @@ public class SearchTeacher {
 			try {
 
 				Class.forName("com.mysql.jdbc.Driver");
-				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/schoolmanagmentdb","root","");
+				Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
 
 
 				Statement stmt=con.createStatement();
@@ -18,9 +18,12 @@ public class SearchTeacher {
 
 
 
-				rs.next();
+			
 				ListTeachers teacher= new ListTeachers();
 				
+				rs.next();
+				
+			
 				teacher.TeacherID = Integer.parseInt(rs.getString(1).toString());
 				teacher.RegistrationNumber = Integer.parseInt(rs.getString(2).toString());
 				teacher.Name = rs.getString(3).toString();
@@ -33,9 +36,8 @@ public class SearchTeacher {
 				teacher.Address = rs.getString(10).toString();
 				teacher.RegistrationDate = rs.getString(11).toString();
 				teacher.Status = rs.getString(12).toString();
-				
-
-return teacher;
+			
+				return teacher;
 				}
 
 
