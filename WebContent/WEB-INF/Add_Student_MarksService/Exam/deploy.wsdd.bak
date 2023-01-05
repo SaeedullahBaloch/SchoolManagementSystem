@@ -20,18 +20,15 @@
       <parameter name="className" value="Exam.Add_Student_MarksSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="Add_Student_Marks"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="addstudent" qname="operNS:addstudent" xmlns:operNS="http://Exam" returnQName="retNS:addstudentReturn" xmlns:retNS="http://Exam" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:AdmissionNumber" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:StudentName" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:FatherName" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:DateOfBirth" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Phone" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Address" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Email" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:ClassesID" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:Status" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="addstudentmarks" qname="operNS:addstudentmarks" xmlns:operNS="http://Exam" returnQName="retNS:addstudentmarksReturn" xmlns:retNS="http://Exam" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ExamID" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:StudentID" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:TeacherID" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:TotalMarks" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ObtainedMarks" xmlns:pns="http://Exam" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Result" xmlns:pns="http://Exam" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="addstudent"/>
+      <parameter name="allowedMethods" value="addstudentmarks"/>
 
   </service>
 </deployment>

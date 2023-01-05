@@ -85,7 +85,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:Creat_ExamSoapBinding" name="Creat_Exam">
 
-         <wsdlsoap:address location="http://tempuri.org/SchoolManagementSystem/services/Creat_Exam"/>
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/Creat_Exam"/>
 
       </wsdl:port>
 

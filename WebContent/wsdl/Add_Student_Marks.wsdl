@@ -4,42 +4,39 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://Exam" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="addstudent">
+   <element name="addstudentmarks">
     <complexType>
      <sequence>
-      <element name="AdmissionNumber" type="xsd:int"/>
-      <element name="StudentName" type="xsd:string"/>
-      <element name="FatherName" type="xsd:string"/>
-      <element name="DateOfBirth" type="xsd:string"/>
-      <element name="Phone" type="xsd:string"/>
-      <element name="Address" type="xsd:string"/>
-      <element name="Email" type="xsd:string"/>
-      <element name="ClassesID" type="xsd:int"/>
-      <element name="Status" type="xsd:int"/>
+      <element name="ExamID" type="xsd:int"/>
+      <element name="StudentID" type="xsd:int"/>
+      <element name="TeacherID" type="xsd:int"/>
+      <element name="TotalMarks" type="xsd:int"/>
+      <element name="ObtainedMarks" type="xsd:int"/>
+      <element name="Result" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="addstudentResponse">
+   <element name="addstudentmarksResponse">
     <complexType>
      <sequence>
-      <element name="addstudentReturn" type="xsd:int"/>
+      <element name="addstudentmarksReturn" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="addstudentRequest">
+   <wsdl:message name="addstudentmarksRequest">
 
-      <wsdl:part element="impl:addstudent" name="parameters">
+      <wsdl:part element="impl:addstudentmarks" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="addstudentResponse">
+   <wsdl:message name="addstudentmarksResponse">
 
-      <wsdl:part element="impl:addstudentResponse" name="parameters">
+      <wsdl:part element="impl:addstudentmarksResponse" name="parameters">
 
       </wsdl:part>
 
@@ -47,13 +44,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Add_Student_Marks">
 
-      <wsdl:operation name="addstudent">
+      <wsdl:operation name="addstudentmarks">
 
-         <wsdl:input message="impl:addstudentRequest" name="addstudentRequest">
+         <wsdl:input message="impl:addstudentmarksRequest" name="addstudentmarksRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:addstudentResponse" name="addstudentResponse">
+         <wsdl:output message="impl:addstudentmarksResponse" name="addstudentmarksResponse">
 
        </wsdl:output>
 
@@ -65,17 +62,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="addstudent">
+      <wsdl:operation name="addstudentmarks">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="addstudentRequest">
+         <wsdl:input name="addstudentmarksRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="addstudentResponse">
+         <wsdl:output name="addstudentmarksResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -89,7 +86,7 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdl:port binding="impl:Add_Student_MarksSoapBinding" name="Add_Student_Marks">
 
-         <wsdlsoap:address location="http://tempuri.org/SchoolManagementSystem/services/Add_Student_Marks"/>
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/Add_Student_Marks"/>
 
       </wsdl:port>
 
