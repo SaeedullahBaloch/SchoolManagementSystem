@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -41,43 +41,66 @@
    <ns2:parameter qname="ns1:status" type="xsd:int"/>
   </ns2:operation>
   <ns1:parameter name="allowedMethods" value="addExam"/>
-  <ns1:parameter name="wsdlPortType" value="Creat_Exam"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://Exam"/>
-  <ns1:parameter name="wsdlServicePort" value="Creat_Exam"/>
+  <ns1:parameter name="wsdlPortType" value="Creat_Exam"/>
   <ns1:parameter name="className" value="Exam.Creat_Exam"/>
+  <ns1:parameter name="wsdlServicePort" value="Creat_Exam"/>
+  <ns1:parameter name="schemaQualified" value="http://Exam"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Exam"/>
   <ns1:parameter name="wsdlServiceElement" value="Creat_ExamService"/>
  </ns1:service>
+ <ns1:service name="Marks_list" provider="java:RPC" style="document">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="Marks_list"/>
+  <ns1:parameter name="className" value="Exam.Marks_list"/>
+  <ns1:parameter name="wsdlServicePort" value="Marks_list"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Exam"/>
+  <ns1:parameter name="wsdlServiceElement" value="Marks_listService"/>
+ </ns1:service>
+ <ns1:service name="Listing_Exam" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="listing_Exams" qname="ns2:listing_Exams" returnQName="ns2:listing_ExamsReturn" returnType="ns2:Exam_list" soapAction="" xmlns:ns2="http://Exam"/>
+  <ns1:parameter name="sendMultiRefs" value="false"/>
+  <ns1:parameter name="wsdlServicePort" value="Listing_Exam"/>
+  <ns1:parameter name="schemaQualified" value="http://Exam"/>
+  <ns1:parameter name="className" value="Exam.Listing_Exam"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="allowedMethods" value="listing_Exams"/>
+  <ns1:parameter name="wsdlPortType" value="Listing_Exam"/>
+  <ns1:parameter name="wsdlServiceElement" value="Listing_ExamService"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Exam"/>
+  <ns1:parameter name="sendXsiTypes" value="false"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns3:Exam_list" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Exam.Exam_list" xmlns:ns3="http://Exam"/>
+ </ns1:service>
  <ns1:service name="Add_Student_Marks" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="addstudentmarks" qname="ns2:addstudentmarks" returnQName="ns2:addstudentmarksReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://Exam" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:ExamID" type="xsd:int"/>
-   <ns1:parameter qname="ns2:StudentID" type="xsd:int"/>
-   <ns1:parameter qname="ns2:TeacherID" type="xsd:int"/>
-   <ns1:parameter qname="ns2:TotalMarks" type="xsd:int"/>
-   <ns1:parameter qname="ns2:ObtainedMarks" type="xsd:int"/>
-   <ns1:parameter qname="ns2:Result" type="xsd:string"/>
+  <ns1:operation name="addstudentmarks" qname="ns4:addstudentmarks" returnQName="ns4:addstudentmarksReturn" returnType="xsd:int" soapAction="" xmlns:ns4="http://Exam" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:ExamID" type="xsd:int"/>
+   <ns1:parameter qname="ns4:StudentID" type="xsd:int"/>
+   <ns1:parameter qname="ns4:TeacherID" type="xsd:int"/>
+   <ns1:parameter qname="ns4:TotalMarks" type="xsd:int"/>
+   <ns1:parameter qname="ns4:ObtainedMarks" type="xsd:int"/>
+   <ns1:parameter qname="ns4:Result" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="addstudentmarks"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Add_Student_Marks"/>
-  <ns1:parameter name="className" value="Exam.Add_Student_Marks"/>
-  <ns1:parameter name="wsdlServicePort" value="Add_Student_Marks"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://Exam"/>
+  <ns1:parameter name="wsdlServicePort" value="Add_Student_Marks"/>
+  <ns1:parameter name="className" value="Exam.Add_Student_Marks"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Exam"/>
   <ns1:parameter name="wsdlServiceElement" value="Add_Student_MarksService"/>
  </ns1:service>
  <ns1:service name="Mark_listing" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="mark_listing" qname="ns3:mark_listing" returnQName="ns3:mark_listingReturn" returnType="ns3:Marks_list" soapAction="" xmlns:ns3="http://Exam"/>
+  <ns1:operation name="mark_listing" qname="ns5:mark_listing" returnQName="ns5:mark_listingReturn" returnType="ns5:Marks_list" soapAction="" xmlns:ns5="http://Exam"/>
   <ns1:parameter name="allowedMethods" value="mark_listing"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="Mark_listing"/>
-  <ns1:parameter name="className" value="Exam.Mark_listing"/>
-  <ns1:parameter name="wsdlServicePort" value="Mark_listing"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="schemaQualified" value="http://Exam"/>
+  <ns1:parameter name="wsdlServicePort" value="Mark_listing"/>
+  <ns1:parameter name="className" value="Exam.Mark_listing"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Exam"/>
   <ns1:parameter name="wsdlServiceElement" value="Mark_listingService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:Marks_list" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Exam.Marks_list" xmlns:ns4="http://Exam"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns6:Marks_list" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Exam.Marks_list" xmlns:ns6="http://Exam"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>
