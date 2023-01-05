@@ -10,14 +10,14 @@
     xmlns="http://xml.apache.org/axis/wsdd/"
     xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
-  <!-- Services from Marks_listService WSDL service -->
+  <!-- Services from VoucherListService WSDL service -->
 
-  <service name="Marks_list" provider="java:RPC" style="document" use="encoded">
-      <parameter name="wsdlTargetNamespace" value="http://Exam"/>
-      <parameter name="wsdlServiceElement" value="Marks_listService"/>
-      <parameter name="wsdlServicePort" value="Marks_list"/>
-      <parameter name="className" value="Exam.Marks_listSoapBindingImpl"/>
-      <parameter name="wsdlPortType" value="Marks_list"/>
+  <service name="VoucherList" provider="java:RPC" style="document" use="encoded">
+      <parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
+      <parameter name="wsdlServiceElement" value="VoucherListService"/>
+      <parameter name="wsdlServicePort" value="VoucherList"/>
+      <parameter name="className" value="feeCollection.VoucherListSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="VoucherList"/>
       <parameter name="typeMappingVersion" value="1.2"/>
       <parameter name="allowedMethods" value="*"/>
 
