@@ -17,10 +17,10 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <complexType name="VoucherList">
     <sequence>
      <element name="id" type="xsd:int"/>
-     <element name="studentID" type="xsd:int"/>
      <element name="amount" type="xsd:int"/>
      <element name="FeeMonth" nillable="true" type="xsd:string"/>
      <element name="Date" nillable="true" type="xsd:string"/>
+     <element name="StudentName" nillable="true" type="xsd:string"/>
     </sequence>
    </complexType>
   </schema>

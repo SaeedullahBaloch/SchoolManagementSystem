@@ -14,10 +14,19 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <element name="getVoucherResponse">
     <complexType>
      <sequence>
-      <element name="getVoucherReturn" type="xsd:string"/>
+      <element name="getVoucherReturn" type="impl:VoucherList"/>
      </sequence>
     </complexType>
    </element>
+   <complexType name="VoucherList">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="amount" type="xsd:int"/>
+     <element name="FeeMonth" nillable="true" type="xsd:string"/>
+     <element name="Date" nillable="true" type="xsd:string"/>
+     <element name="StudentName" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
   </schema>
  </wsdl:types>
 

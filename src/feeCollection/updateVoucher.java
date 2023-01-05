@@ -4,9 +4,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class collectFee {
-	
+public class updateVoucher {
 
+	
+	
+	
 	public int collectStudentFee(int id, int studentID, String FeeMonth, String Date, int amount)
 	{
 		
@@ -18,7 +20,7 @@ public class collectFee {
 				
 			
 			Statement stmt=con.createStatement();
-			String query = "insert into fee values ('"+id+"', '"+studentID+"','"+FeeMonth+"', '"+Date+"', '"+amount+"' )";
+			String query = "update fee set StudentID = '"+studentID+"', FeeMonth = '"+FeeMonth+"', Date = '"+Date+"', Amount = '"+amount+"' where FeeID = '"+id+"' ";
 			
 			
 			System.out.println(query);

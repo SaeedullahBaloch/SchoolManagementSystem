@@ -22,7 +22,9 @@ public class ListingVoucher {
 			Statement stmt=con.createStatement();
 			
 			
-		ResultSet rs = stmt.executeQuery("select * from fee");
+		ResultSet rs = stmt.executeQuery("select FeeID, students.StudentName, Date, FeeMonth, Amount \r\n" + 
+				"from fee\r\n" + 
+				"join students on students.StudentID = fee.StudentID");
 			
 			
 		int size =0;  
@@ -49,7 +51,7 @@ public class ListingVoucher {
 				listvouchers[i] = new VoucherList();	
 				
 				listvouchers[i].id = Integer.parseInt(rs.getString(1));
-				listvouchers[i].studentID = Integer.parseInt(rs.getString(2));
+				listvouchers[i].StudentName = rs.getString(2);
 				listvouchers[i].FeeMonth = rs.getString(3);
 				listvouchers[i].Date = rs.getString(4);
 				listvouchers[i].amount = Integer.parseInt(rs.getString(5));

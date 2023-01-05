@@ -8,7 +8,7 @@ import java.sql.Statement;
 public class SearchVoucher {
 	
 	
-	public String getVoucher(int id)
+	public VoucherList getVoucher(int id)
 	{
 		
 		try
@@ -21,13 +21,20 @@ public class SearchVoucher {
 			Statement stmt=con.createStatement();
 			
 			
-		ResultSet rs = stmt.executeQuery("select * from fee where FeeID = '"+id+"'");
+			ResultSet rs = stmt.executeQuery("select * from fee where FeeID = '"+id+"'");
 		
 		rs.next();
 		
-		String Receipt = rs.getString(1).toString() + rs.getString(2).toString() + rs.getString(3).toString() + rs.getString(4).toString() + rs.getString(5).toString();
+	
+		VoucherList vl = new VoucherList();
+		vl.id = Integer.parseInt(rs.getString(1));
+		vl.StudentName = rs.getString(2).toString();
+		vl.FeeMonth = rs.getString(3).toString();
+		vl.Date = rs.getString(4).toString();
+		vl.amount = Integer.parseInt(rs.getString(5));
+		
 		con.close();
-		return Receipt;
+		return vl;
 		
 		}
 		
@@ -37,7 +44,7 @@ public class SearchVoucher {
 			System.out.println(ex.getMessage());
 		}
 		
-		return "";
+		return null;
 	}
 	
 	

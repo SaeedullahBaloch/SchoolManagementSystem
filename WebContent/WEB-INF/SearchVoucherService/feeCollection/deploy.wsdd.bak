@@ -20,10 +20,18 @@
       <parameter name="className" value="feeCollection.SearchVoucherSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="SearchVoucher"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="getVoucher" qname="operNS:getVoucher" xmlns:operNS="http://feeCollection" returnQName="retNS:getVoucherReturn" xmlns:retNS="http://feeCollection" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="getVoucher" qname="operNS:getVoucher" xmlns:operNS="http://feeCollection" returnQName="retNS:getVoucherReturn" xmlns:retNS="http://feeCollection" returnType="rtns:VoucherList" xmlns:rtns="http://feeCollection" soapAction="" >
         <parameter qname="pns:id" xmlns:pns="http://feeCollection" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="getVoucher"/>
 
+      <typeMapping
+        xmlns:ns="http://feeCollection"
+        qname="ns:VoucherList"
+        type="java:feeCollection.VoucherList"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
   </service>
 </deployment>

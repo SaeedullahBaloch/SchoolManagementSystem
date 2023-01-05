@@ -2,6 +2,6 @@ package feeCollection;
 
 public class VoucherList {
 
-	public int id, studentID, amount;
-	public String FeeMonth, Date;
+	public int id,  amount;
+	public String FeeMonth, Date,StudentName;
 }
