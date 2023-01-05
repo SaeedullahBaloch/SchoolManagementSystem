@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Main" xmlns:intf="http://Main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="listAllStudents">
+    <complexType/>
+   </element>
+   <element name="listAllStudentsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="listAllStudentsReturn" type="impl:StudentList"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="StudentList">
+    <sequence>
+     <element name="AdmissionNumber" type="xsd:int"/>
+     <element name="Status" type="xsd:int"/>
+     <element name="Name" nillable="true" type="xsd:string"/>
+     <element name="Father" nillable="true" type="xsd:string"/>
+     <element name="DOB" nillable="true" type="xsd:string"/>
+     <element name="Phone" nillable="true" type="xsd:string"/>
+     <element name="Address" nillable="true" type="xsd:string"/>
+     <element name="Email" nillable="true" type="xsd:string"/>
+     <element name="ClassID" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="listAllStudentsRequest">
+
+      <wsdl:part element="impl:listAllStudents" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="listAllStudentsResponse">
+
+      <wsdl:part element="impl:listAllStudentsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ListingStudents">
+
+      <wsdl:operation name="listAllStudents">
+
+         <wsdl:input message="impl:listAllStudentsRequest" name="listAllStudentsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:listAllStudentsResponse" name="listAllStudentsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ListingStudentsSoapBinding" type="impl:ListingStudents">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="listAllStudents">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="listAllStudentsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="listAllStudentsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ListingStudentsService">
+
+      <wsdl:port binding="impl:ListingStudentsSoapBinding" name="ListingStudents">
+
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/ListingStudents"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

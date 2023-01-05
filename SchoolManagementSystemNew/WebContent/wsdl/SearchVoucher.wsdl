@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://feeCollection" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://feeCollection" xmlns:intf="http://feeCollection" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://feeCollection" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getVoucher">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getVoucherResponse">
+    <complexType>
+     <sequence>
+      <element name="getVoucherReturn" type="impl:VoucherList"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="VoucherList">
+    <sequence>
+     <element name="id" type="xsd:int"/>
+     <element name="amount" type="xsd:int"/>
+     <element name="FeeMonth" nillable="true" type="xsd:string"/>
+     <element name="Date" nillable="true" type="xsd:string"/>
+     <element name="StudentName" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getVoucherResponse">
+
+      <wsdl:part element="impl:getVoucherResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getVoucherRequest">
+
+      <wsdl:part element="impl:getVoucher" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="SearchVoucher">
+
+      <wsdl:operation name="getVoucher">
+
+         <wsdl:input message="impl:getVoucherRequest" name="getVoucherRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getVoucherResponse" name="getVoucherResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="SearchVoucherSoapBinding" type="impl:SearchVoucher">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getVoucher">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getVoucherRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getVoucherResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="SearchVoucherService">
+
+      <wsdl:port binding="impl:SearchVoucherSoapBinding" name="SearchVoucher">
+
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/SearchVoucher"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

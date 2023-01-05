@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://Exam" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://Exam" xmlns:intf="http://Exam" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://Exam" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addExam">
+    <complexType>
+     <sequence>
+      <element name="ExamID" type="xsd:int"/>
+      <element name="Name" type="xsd:string"/>
+      <element name="StartDate" type="xsd:string"/>
+      <element name="EndDate" type="xsd:string"/>
+      <element name="status" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addExamResponse">
+    <complexType>
+     <sequence>
+      <element name="addExamReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addExamRequest">
+
+      <wsdl:part element="impl:addExam" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addExamResponse">
+
+      <wsdl:part element="impl:addExamResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Creat_Exam">
+
+      <wsdl:operation name="addExam">
+
+         <wsdl:input message="impl:addExamRequest" name="addExamRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addExamResponse" name="addExamResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="Creat_ExamSoapBinding" type="impl:Creat_Exam">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addExam">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addExamRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addExamResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="Creat_ExamService">
+
+      <wsdl:port binding="impl:Creat_ExamSoapBinding" name="Creat_Exam">
+
+         <wsdlsoap:address location="http://localhost:8080/SchoolManagementSystemNew/services/Creat_Exam"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
