@@ -13,8 +13,11 @@ public class TeacherListing {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
 
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("SELECT TeacherID, RegistrationNumber, Name, Father, DateOfBirth, Phone, CNIC, Qualification, Email, Address, RegistrationDate, Status FROM `teachers`");
+			
+			String Query = "SELECT TeacherID, RegistrationNumber, Name, Father, DateOfBirth, Phone, CNIC, Qualification, Email, Address, RegistrationDate, Status FROM `teachers`";
+			ResultSet rs=stmt.executeQuery(Query);
 	
+			
 			
 			int size =0;  
 			if (rs != null)   

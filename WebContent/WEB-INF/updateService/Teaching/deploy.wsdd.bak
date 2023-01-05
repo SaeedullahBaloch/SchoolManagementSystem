@@ -1,0 +1,40 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from updateService WSDL service -->
+
+  <service name="update" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://Teaching"/>
+      <parameter name="wsdlServiceElement" value="updateService"/>
+      <parameter name="schemaQualified" value="http://Teaching"/>
+      <parameter name="wsdlServicePort" value="update"/>
+      <parameter name="className" value="Teaching.UpdateSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="update"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="updateTeacher" qname="operNS:updateTeacher" xmlns:operNS="http://Teaching" returnQName="retNS:updateTeacherReturn" xmlns:retNS="http://Teaching" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:TeacherID" xmlns:pns="http://Teaching" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:RegistrationNumber" xmlns:pns="http://Teaching" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Name" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Father" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:DateOfBirth" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Phone" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:CNIC" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Qualification" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Email" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Address" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:RegistrationDate" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Status" xmlns:pns="http://Teaching" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="updateTeacher"/>
+
+  </service>
+</deployment>

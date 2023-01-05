@@ -9,8 +9,7 @@ public class update {
 			String Qualification,String Email,String Address,String RegistrationDate,String Status)
 	{
 	
-try {
-			
+try {			
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbschoolmanagement","root","");
 			
