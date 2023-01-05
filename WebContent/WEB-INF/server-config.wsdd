@@ -22,44 +22,10 @@
  <ns1:handler name="URLMapper" type="java:org.apache.axis.handlers.http.URLMapper"/>
  <ns1:handler name="Authenticate" type="java:org.apache.axis.handlers.SimpleAuthenticationHandler"/>
  <ns1:handler name="LocalResponder" type="java:org.apache.axis.transport.local.LocalResponder"/>
- <ns1:service name="DeleteVoucher" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="deleteVoucher" qname="ns1:deleteVoucher" returnQName="ns1:deleteVoucherReturn" returnType="xsd:int" soapAction="" xmlns:ns1="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:id" type="xsd:int"/>
-  </ns2:operation>
-  <ns1:parameter name="allowedMethods" value="deleteVoucher"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="DeleteVoucher"/>
-  <ns1:parameter name="className" value="feeCollection.DeleteVoucher"/>
-  <ns1:parameter name="wsdlServicePort" value="DeleteVoucher"/>
-  <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
-  <ns1:parameter name="wsdlServiceElement" value="DeleteVoucherService"/>
- </ns1:service>
- <ns1:service name="AddStudents" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="addNewStudent" qname="ns2:addNewStudent" returnQName="ns2:addNewStudentReturn" returnType="xsd:int" soapAction="" xmlns:ns2="http://Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns2:AdmissionNumber" type="xsd:int"/>
-   <ns1:parameter qname="ns2:StudentName" type="xsd:string"/>
-   <ns1:parameter qname="ns2:Father" type="xsd:string"/>
-   <ns1:parameter qname="ns2:DOB" type="xsd:string"/>
-   <ns1:parameter qname="ns2:Phone" type="xsd:string"/>
-   <ns1:parameter qname="ns2:Address" type="xsd:string"/>
-   <ns1:parameter qname="ns2:Email" type="xsd:string"/>
-   <ns1:parameter qname="ns2:ClassID" type="xsd:int"/>
-   <ns1:parameter qname="ns2:status" type="xsd:int"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="addNewStudent"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="AddStudents"/>
-  <ns1:parameter name="className" value="Main.AddStudents"/>
-  <ns1:parameter name="wsdlServicePort" value="AddStudents"/>
-  <ns1:parameter name="schemaQualified" value="http://Main"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
-  <ns1:parameter name="wsdlServiceElement" value="AddStudentsService"/>
- </ns1:service>
  <ns1:service name="SearchStudents" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="findStudents" qname="ns3:findStudents" returnQName="ns3:findStudentsReturn" returnType="ns3:StudentList" soapAction="" xmlns:ns3="http://Main">
-   <ns1:parameter qname="ns3:AdmissionNumber" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns1:operation>
+  <ns2:operation name="findStudents" qname="ns1:findStudents" returnQName="ns1:findStudentsReturn" returnType="ns1:StudentList" soapAction="" xmlns:ns1="http://Main" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:AdmissionNumber" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns2:operation>
   <ns1:parameter name="allowedMethods" value="findStudents"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="SearchStudents"/>
@@ -68,7 +34,7 @@
   <ns1:parameter name="schemaQualified" value="http://Main"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
   <ns1:parameter name="wsdlServiceElement" value="SearchStudentsService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:StudentList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Main.StudentList" xmlns:ns4="http://Main"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:StudentList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Main.StudentList" xmlns:ns2="http://Main"/>
  </ns1:service>
  <ns1:service name="AdminService" provider="java:MSG">
   <ns1:parameter name="allowedMethods" value="AdminService"/>
@@ -76,35 +42,35 @@
   <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
- <ns1:service name="SearchTeacher" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="findTeachers" qname="ns1:findTeachers" returnQName="ns1:findTeachersReturn" returnType="ns1:ListTeachers" soapAction="" xmlns:ns1="http://Teaching" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
-   <ns2:parameter qname="ns1:TeacherID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
-  </ns2:operation>
-  <ns1:parameter name="allowedMethods" value="findTeachers"/>
-  <ns1:parameter name="wsdlPortType" value="SearchTeacher"/>
+ <ns1:service name="StudentList" provider="java:RPC" style="document" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="wsdlPortType" value="StudentList"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
-  <ns1:parameter name="wsdlServicePort" value="SearchTeacher"/>
-  <ns1:parameter name="className" value="Teaching.SearchTeacher"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
-  <ns1:parameter name="wsdlServiceElement" value="SearchTeacherService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns2:ListTeachers" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Teaching.ListTeachers" xmlns:ns2="http://Teaching"/>
+  <ns1:parameter name="wsdlServicePort" value="StudentList"/>
+  <ns1:parameter name="className" value="Main.StudentList"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
+  <ns1:parameter name="wsdlServiceElement" value="StudentListService"/>
  </ns1:service>
- <ns1:service name="Version" provider="java:RPC">
-  <ns1:parameter name="allowedMethods" value="getVersion"/>
-  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ <ns1:service name="ListTeachers" provider="java:RPC" style="document" use="literal">
+  <ns1:parameter name="allowedMethods" value="*"/>
+  <ns1:parameter name="wsdlPortType" value="ListTeachers"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlServicePort" value="ListTeachers"/>
+  <ns1:parameter name="className" value="Teaching.ListTeachers"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
+  <ns1:parameter name="wsdlServiceElement" value="ListTeachersService"/>
  </ns1:service>
  <ns1:service name="EditStudents" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="editStudents" qname="ns5:editStudents" returnQName="ns5:editStudentsReturn" returnType="xsd:int" soapAction="" xmlns:ns5="http://Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns5:AdmissionNumber" type="xsd:int"/>
-   <ns1:parameter qname="ns5:StudentName" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Father" type="xsd:string"/>
-   <ns1:parameter qname="ns5:DOB" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Phone" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Address" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Email" type="xsd:string"/>
-   <ns1:parameter qname="ns5:ClassID" type="xsd:int"/>
-   <ns1:parameter qname="ns5:status" type="xsd:string"/>
+  <ns1:operation name="editStudents" qname="ns3:editStudents" returnQName="ns3:editStudentsReturn" returnType="xsd:int" soapAction="" xmlns:ns3="http://Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:AdmissionNumber" type="xsd:int"/>
+   <ns1:parameter qname="ns3:StudentName" type="xsd:string"/>
+   <ns1:parameter qname="ns3:Father" type="xsd:string"/>
+   <ns1:parameter qname="ns3:DOB" type="xsd:string"/>
+   <ns1:parameter qname="ns3:Phone" type="xsd:string"/>
+   <ns1:parameter qname="ns3:Address" type="xsd:string"/>
+   <ns1:parameter qname="ns3:Email" type="xsd:string"/>
+   <ns1:parameter qname="ns3:ClassID" type="xsd:int"/>
+   <ns1:parameter qname="ns3:status" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="editStudents"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -115,13 +81,49 @@
   <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
   <ns1:parameter name="wsdlServiceElement" value="EditStudentsService"/>
  </ns1:service>
+ <ns1:service name="addTeachers" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="addNewTeacher" qname="ns4:addNewTeacher" returnQName="ns4:addNewTeacherReturn" returnType="xsd:int" soapAction="" xmlns:ns4="http://Teaching" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns4:TeacherID" type="xsd:int"/>
+   <ns1:parameter qname="ns4:RegistrationNumber" type="xsd:int"/>
+   <ns1:parameter qname="ns4:Name" type="xsd:string"/>
+   <ns1:parameter qname="ns4:Father" type="xsd:string"/>
+   <ns1:parameter qname="ns4:DateOfBirth" type="xsd:string"/>
+   <ns1:parameter qname="ns4:Phone" type="xsd:string"/>
+   <ns1:parameter qname="ns4:CNIC" type="xsd:string"/>
+   <ns1:parameter qname="ns4:Qualification" type="xsd:string"/>
+   <ns1:parameter qname="ns4:Email" type="xsd:string"/>
+   <ns1:parameter qname="ns4:Address" type="xsd:string"/>
+   <ns1:parameter qname="ns4:RegistrationDate" type="xsd:string"/>
+   <ns1:parameter qname="ns4:Status" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addNewTeacher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="addTeachers"/>
+  <ns1:parameter name="className" value="Teaching.addTeachers"/>
+  <ns1:parameter name="wsdlServicePort" value="addTeachers"/>
+  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
+  <ns1:parameter name="wsdlServiceElement" value="addTeachersService"/>
+ </ns1:service>
+ <ns1:service name="TeacherListing" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="listAllTeachers" qname="ns5:listAllTeachers" returnQName="ns5:listAllTeachersReturn" returnType="ns5:ListTeachers" soapAction="" xmlns:ns5="http://Teaching"/>
+  <ns1:parameter name="allowedMethods" value="listAllTeachers"/>
+  <ns1:parameter name="wsdlPortType" value="TeacherListing"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
+  <ns1:parameter name="wsdlServicePort" value="TeacherListing"/>
+  <ns1:parameter name="className" value="Teaching.TeacherListing"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
+  <ns1:parameter name="wsdlServiceElement" value="TeacherListingService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns6:ListTeachers" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Teaching.ListTeachers" xmlns:ns6="http://Teaching"/>
+ </ns1:service>
  <ns1:service name="collectFee" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="collectStudentFee" qname="ns6:collectStudentFee" returnQName="ns6:collectStudentFeeReturn" returnType="xsd:int" soapAction="" xmlns:ns6="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns6:id" type="xsd:int"/>
-   <ns1:parameter qname="ns6:studentID" type="xsd:int"/>
-   <ns1:parameter qname="ns6:FeeMonth" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Date" type="xsd:string"/>
-   <ns1:parameter qname="ns6:amount" type="xsd:int"/>
+  <ns1:operation name="collectStudentFee" qname="ns7:collectStudentFee" returnQName="ns7:collectStudentFeeReturn" returnType="xsd:int" soapAction="" xmlns:ns7="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:id" type="xsd:int"/>
+   <ns1:parameter qname="ns7:studentID" type="xsd:int"/>
+   <ns1:parameter qname="ns7:FeeMonth" type="xsd:string"/>
+   <ns1:parameter qname="ns7:Date" type="xsd:string"/>
+   <ns1:parameter qname="ns7:amount" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="collectStudentFee"/>
   <ns1:parameter name="wsdlPortType" value="collectFee"/>
@@ -132,9 +134,97 @@
   <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
   <ns1:parameter name="wsdlServiceElement" value="collectFeeService"/>
  </ns1:service>
+ <ns1:service name="update" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="updateTeacher" qname="ns8:updateTeacher" returnQName="ns8:updateTeacherReturn" returnType="xsd:int" soapAction="" xmlns:ns8="http://Teaching" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:TeacherID" type="xsd:int"/>
+   <ns1:parameter qname="ns8:RegistrationNumber" type="xsd:int"/>
+   <ns1:parameter qname="ns8:Name" type="xsd:string"/>
+   <ns1:parameter qname="ns8:Father" type="xsd:string"/>
+   <ns1:parameter qname="ns8:DateOfBirth" type="xsd:string"/>
+   <ns1:parameter qname="ns8:Phone" type="xsd:string"/>
+   <ns1:parameter qname="ns8:CNIC" type="xsd:string"/>
+   <ns1:parameter qname="ns8:Qualification" type="xsd:string"/>
+   <ns1:parameter qname="ns8:Email" type="xsd:string"/>
+   <ns1:parameter qname="ns8:Address" type="xsd:string"/>
+   <ns1:parameter qname="ns8:RegistrationDate" type="xsd:string"/>
+   <ns1:parameter qname="ns8:Status" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="updateTeacher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="update"/>
+  <ns1:parameter name="className" value="Teaching.update"/>
+  <ns1:parameter name="wsdlServicePort" value="update"/>
+  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
+  <ns1:parameter name="wsdlServiceElement" value="updateService"/>
+ </ns1:service>
+ <ns1:service name="ListingVoucher" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="vouchers" qname="ns9:vouchers" returnQName="ns9:vouchersReturn" returnType="ns9:VoucherList" soapAction="" xmlns:ns9="http://feeCollection"/>
+  <ns1:parameter name="allowedMethods" value="vouchers"/>
+  <ns1:parameter name="wsdlPortType" value="ListingVoucher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServicePort" value="ListingVoucher"/>
+  <ns1:parameter name="className" value="feeCollection.ListingVoucher"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServiceElement" value="ListingVoucherService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:VoucherList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:feeCollection.VoucherList" xmlns:ns10="http://feeCollection"/>
+ </ns1:service>
+ <ns1:service name="DeleteVoucher" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="deleteVoucher" qname="ns11:deleteVoucher" returnQName="ns11:deleteVoucherReturn" returnType="xsd:int" soapAction="" xmlns:ns11="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns11:id" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="deleteVoucher"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="DeleteVoucher"/>
+  <ns1:parameter name="className" value="feeCollection.DeleteVoucher"/>
+  <ns1:parameter name="wsdlServicePort" value="DeleteVoucher"/>
+  <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
+  <ns1:parameter name="wsdlServiceElement" value="DeleteVoucherService"/>
+ </ns1:service>
+ <ns1:service name="AddStudents" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="addNewStudent" qname="ns12:addNewStudent" returnQName="ns12:addNewStudentReturn" returnType="xsd:int" soapAction="" xmlns:ns12="http://Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns12:AdmissionNumber" type="xsd:int"/>
+   <ns1:parameter qname="ns12:StudentName" type="xsd:string"/>
+   <ns1:parameter qname="ns12:Father" type="xsd:string"/>
+   <ns1:parameter qname="ns12:DOB" type="xsd:string"/>
+   <ns1:parameter qname="ns12:Phone" type="xsd:string"/>
+   <ns1:parameter qname="ns12:Address" type="xsd:string"/>
+   <ns1:parameter qname="ns12:Email" type="xsd:string"/>
+   <ns1:parameter qname="ns12:ClassID" type="xsd:int"/>
+   <ns1:parameter qname="ns12:status" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addNewStudent"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="AddStudents"/>
+  <ns1:parameter name="className" value="Main.AddStudents"/>
+  <ns1:parameter name="wsdlServicePort" value="AddStudents"/>
+  <ns1:parameter name="schemaQualified" value="http://Main"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
+  <ns1:parameter name="wsdlServiceElement" value="AddStudentsService"/>
+ </ns1:service>
+ <ns1:service name="SearchTeacher" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="findTeachers" qname="ns13:findTeachers" returnQName="ns13:findTeachersReturn" returnType="ns13:ListTeachers" soapAction="" xmlns:ns13="http://Teaching">
+   <ns1:parameter qname="ns13:TeacherID" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="findTeachers"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="SearchTeacher"/>
+  <ns1:parameter name="className" value="Teaching.SearchTeacher"/>
+  <ns1:parameter name="wsdlServicePort" value="SearchTeacher"/>
+  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
+  <ns1:parameter name="wsdlServiceElement" value="SearchTeacherService"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns14:ListTeachers" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Teaching.ListTeachers" xmlns:ns14="http://Teaching"/>
+ </ns1:service>
+ <ns1:service name="Version" provider="java:RPC">
+  <ns1:parameter name="allowedMethods" value="getVersion"/>
+  <ns1:parameter name="className" value="org.apache.axis.Version"/>
+ </ns1:service>
  <ns1:service name="SearchVoucher" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="getVoucher" qname="ns7:getVoucher" returnQName="ns7:getVoucherReturn" returnType="ns7:VoucherList" soapAction="" xmlns:ns7="http://feeCollection">
-   <ns1:parameter qname="ns7:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="getVoucher" qname="ns15:getVoucher" returnQName="ns15:getVoucherReturn" returnType="ns15:VoucherList" soapAction="" xmlns:ns15="http://feeCollection">
+   <ns1:parameter qname="ns15:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="getVoucher"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -144,11 +234,11 @@
   <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
   <ns1:parameter name="wsdlServiceElement" value="SearchVoucherService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:VoucherList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:feeCollection.VoucherList" xmlns:ns8="http://feeCollection"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns16:VoucherList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:feeCollection.VoucherList" xmlns:ns16="http://feeCollection"/>
  </ns1:service>
  <ns1:service name="DeleteStudents" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="deleteStudent" qname="ns9:deleteStudent" returnQName="ns9:deleteStudentReturn" returnType="xsd:int" soapAction="" xmlns:ns9="http://Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns9:id" type="xsd:int"/>
+  <ns1:operation name="deleteStudent" qname="ns17:deleteStudent" returnQName="ns17:deleteStudentReturn" returnType="xsd:int" soapAction="" xmlns:ns17="http://Main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns17:id" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="deleteStudent"/>
   <ns1:parameter name="wsdlPortType" value="DeleteStudents"/>
@@ -160,7 +250,7 @@
   <ns1:parameter name="wsdlServiceElement" value="DeleteStudentsService"/>
  </ns1:service>
  <ns1:service name="ListingStudents" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="listAllStudents" qname="ns10:listAllStudents" returnQName="ns10:listAllStudentsReturn" returnType="ns10:StudentList" soapAction="" xmlns:ns10="http://Main"/>
+  <ns1:operation name="listAllStudents" qname="ns18:listAllStudents" returnQName="ns18:listAllStudentsReturn" returnType="ns18:StudentList" soapAction="" xmlns:ns18="http://Main"/>
   <ns1:parameter name="allowedMethods" value="listAllStudents"/>
   <ns1:parameter name="wsdlPortType" value="ListingStudents"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -169,15 +259,15 @@
   <ns1:parameter name="className" value="Main.ListingStudents"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://Main"/>
   <ns1:parameter name="wsdlServiceElement" value="ListingStudentsService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:StudentList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Main.StudentList" xmlns:ns11="http://Main"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns19:StudentList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Main.StudentList" xmlns:ns19="http://Main"/>
  </ns1:service>
  <ns1:service name="updateVoucher" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="collectStudentFee" qname="ns12:collectStudentFee" returnQName="ns12:collectStudentFeeReturn" returnType="xsd:int" soapAction="" xmlns:ns12="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns12:id" type="xsd:int"/>
-   <ns1:parameter qname="ns12:studentID" type="xsd:int"/>
-   <ns1:parameter qname="ns12:FeeMonth" type="xsd:string"/>
-   <ns1:parameter qname="ns12:Date" type="xsd:string"/>
-   <ns1:parameter qname="ns12:amount" type="xsd:int"/>
+  <ns1:operation name="collectStudentFee" qname="ns20:collectStudentFee" returnQName="ns20:collectStudentFeeReturn" returnType="xsd:int" soapAction="" xmlns:ns20="http://feeCollection" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns20:id" type="xsd:int"/>
+   <ns1:parameter qname="ns20:studentID" type="xsd:int"/>
+   <ns1:parameter qname="ns20:FeeMonth" type="xsd:string"/>
+   <ns1:parameter qname="ns20:Date" type="xsd:string"/>
+   <ns1:parameter qname="ns20:amount" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="collectStudentFee"/>
   <ns1:parameter name="wsdlPortType" value="updateVoucher"/>
@@ -187,77 +277,6 @@
   <ns1:parameter name="className" value="feeCollection.updateVoucher"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
   <ns1:parameter name="wsdlServiceElement" value="updateVoucherService"/>
- </ns1:service>
- <ns1:service name="ListingVoucher" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="vouchers" qname="ns13:vouchers" returnQName="ns13:vouchersReturn" returnType="ns13:VoucherList" soapAction="" xmlns:ns13="http://feeCollection"/>
-  <ns1:parameter name="allowedMethods" value="vouchers"/>
-  <ns1:parameter name="wsdlPortType" value="ListingVoucher"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://feeCollection"/>
-  <ns1:parameter name="wsdlServicePort" value="ListingVoucher"/>
-  <ns1:parameter name="className" value="feeCollection.ListingVoucher"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://feeCollection"/>
-  <ns1:parameter name="wsdlServiceElement" value="ListingVoucherService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns14:VoucherList" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:feeCollection.VoucherList" xmlns:ns14="http://feeCollection"/>
- <ns1:service name="TeacherListing" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="listAllTeachers" qname="ns3:listAllTeachers" returnQName="ns3:listAllTeachersReturn" returnType="ns3:ListTeachers" soapAction="" xmlns:ns3="http://Teaching"/>
-  <ns1:parameter name="allowedMethods" value="listAllTeachers"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="TeacherListing"/>
-  <ns1:parameter name="className" value="Teaching.TeacherListing"/>
-  <ns1:parameter name="wsdlServicePort" value="TeacherListing"/>
-  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
-  <ns1:parameter name="wsdlServiceElement" value="TeacherListingService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns4:ListTeachers" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:Teaching.ListTeachers" xmlns:ns4="http://Teaching"/>
- </ns1:service>
- <ns1:service name="addTeachers" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="addNewTeacher" qname="ns5:addNewTeacher" returnQName="ns5:addNewTeacherReturn" returnType="xsd:int" soapAction="" xmlns:ns5="http://Teaching" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns5:TeacherID" type="xsd:int"/>
-   <ns1:parameter qname="ns5:RegistrationNumber" type="xsd:int"/>
-   <ns1:parameter qname="ns5:Name" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Father" type="xsd:string"/>
-   <ns1:parameter qname="ns5:DateOfBirth" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Phone" type="xsd:string"/>
-   <ns1:parameter qname="ns5:CNIC" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Qualification" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Email" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Address" type="xsd:string"/>
-   <ns1:parameter qname="ns5:RegistrationDate" type="xsd:string"/>
-   <ns1:parameter qname="ns5:Status" type="xsd:string"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="addNewTeacher"/>
-  <ns1:parameter name="wsdlPortType" value="addTeachers"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
-  <ns1:parameter name="wsdlServicePort" value="addTeachers"/>
-  <ns1:parameter name="className" value="Teaching.addTeachers"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
-  <ns1:parameter name="wsdlServiceElement" value="addTeachersService"/>
- </ns1:service>
- <ns1:service name="update" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="updateTeacher" qname="ns6:updateTeacher" returnQName="ns6:updateTeacherReturn" returnType="xsd:int" soapAction="" xmlns:ns6="http://Teaching" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns6:TeacherID" type="xsd:int"/>
-   <ns1:parameter qname="ns6:RegistrationNumber" type="xsd:int"/>
-   <ns1:parameter qname="ns6:Name" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Father" type="xsd:string"/>
-   <ns1:parameter qname="ns6:DateOfBirth" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Phone" type="xsd:string"/>
-   <ns1:parameter qname="ns6:CNIC" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Qualification" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Email" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Address" type="xsd:string"/>
-   <ns1:parameter qname="ns6:RegistrationDate" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Status" type="xsd:string"/>
-  </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="updateTeacher"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
-  <ns1:parameter name="wsdlPortType" value="update"/>
-  <ns1:parameter name="className" value="Teaching.update"/>
-  <ns1:parameter name="wsdlServicePort" value="update"/>
-  <ns1:parameter name="schemaQualified" value="http://Teaching"/>
-  <ns1:parameter name="wsdlTargetNamespace" value="http://Teaching"/>
-  <ns1:parameter name="wsdlServiceElement" value="updateService"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

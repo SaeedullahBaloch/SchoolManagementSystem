@@ -35,7 +35,7 @@ public class SearchTeacher {
 				teacher.Email = rs.getString(9).toString();
 				teacher.Address = rs.getString(10).toString();
 				teacher.RegistrationDate = rs.getString(11).toString();
-				teacher.Status = rs.getString(12).toString();
+				teacher.Status = rs.getString(12);
 			
 				return teacher;
 				}
